@@ -148,10 +148,13 @@ GET / POST / PUT / DELETE => *Se suelen establecer estos tipos de peticiones a t
 *Se las denomina aplicaciones RESTful , a aplicaciones que operan en forma de servicios web, respondiendo consultas a otros sistemas a través de internet. *
 
 
-** HTTP : Códigos de Estado  **
+**HTTP : Códigos de Estado  **
 
 * 1xx (Informativo) : La petición fue recibida y continua su proceso
 * 2xx (Éxito) : Petición realizada con éxtio
 * 3xx (Redirección) : Mas acciones son requeridas para realizar la petición
 * 4xx(Error del cliente) : La petición tiene errores y no puede ser procesada
 * 5xx (Error del servidor) : El servidor falló al intentar la petición
+
+
+![codigos-estado](https://user-images.githubusercontent.com/84943598/159064689-0a0a4041-4855-4040-942e-ab12b8077f2e.jpg)
