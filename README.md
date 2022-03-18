@@ -38,6 +38,32 @@ Es importante tener en cuenta en los versionados la función que cumple cada num
 * Para realizar una actualización de patches o actualización menor se utiliza el caracter " ^ " (Circunflejo). 
 * Para realizar todas las actualizaciónes se utiliza " * " 
 
+### ATAJOS DE TERMINAL
+
+* Para crear un nuevo archivo se suele utilizar este codigo
+
+```
+New-item nombreDelArchivo.formato
+```
+
+*  Para crear una nueva carpeta se suele usar el siguiente código
+
+```
+mkdir nombreDelDirectorio
+```
+
+* Para ir a un directorio específico se utiliza
+
+```
+cd nombreDelDirectorio
+```
+
+* Para ir atras se utliliza 
+
+```
+cd ..
+```
+
 
 
 
