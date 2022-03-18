@@ -223,7 +223,7 @@ res.json()
 ```
 app.post("/formulario", (req, res) => {
     const {title, price, year} = req.body ; // undefined
-    res.send("formulario");
+    res.send(variables);
 });
 
 ```
