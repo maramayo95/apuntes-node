@@ -134,6 +134,9 @@ GET / POST / PUT / DELETE => *Se suelen establecer estos tipos de peticiones a t
 *Se las denomina aplicaciones RESTful , a aplicaciones que operan en forma de servicios web, respondiendo consultas a otros sistemas a través de internet. *
 
 
+
+
+
 **HTTP : Códigos de Estado  **
 
 * 1xx (Informativo) : La petición fue recibida y continua su proceso
@@ -196,4 +199,36 @@ req.params.id
 ```
 res.json()
 ```
+
+## Configuración en Petición Post 
+
+*El método POST se suele utilizar para enviar datos desde un cliente hacia un servidor. Por ejemplo para crear n nuevo registro.*
+
+*Para poder acceder al cuerpo del mensaje se hace a través del  campo 'body '
+
+* Aqui veremos un ejemplo claro con un form hecho en HTML 
+
+*Desde el front:* 
+```
+<form action="/formulario" method="post">
+    <input type="text" name="nombre" placeholder="nombre" />
+    <input type="text" name="apellido" placeholder="apellido" />
+    <button type="submit">Enviar</button>
+</form>
+
+```
+
+*Desde el back:*
+
+```
+app.post("/formulario", (req, res) => {
+    const {title, price, year} = req.body ; // undefined
+    res.send("formulario");
+});
+
+```
+
+*Se puede utilizar la desestructuración para poder operar con los distintos inputs que ofrece el body y almacenarlos a cada uno en una variable para luego poder operar con ellos* 
+
+
 
