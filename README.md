@@ -65,6 +65,77 @@ cd ..
 ```
 
 
+# Servidores Web 
+
+### Instalar Nodemon 
+
+```
+ npm i -g nodemon 
+```
+
+Para la ejecución de node conviene modificar el package.json en la sección scripts
+
+```
+"dev": "nodemon ./index.js",
+```
+
+Lo que nos permitirá luego poder ejecutar nodemon desde la terminal de la siguiente forma
+
+```
+ npm run nodemon
+```
+
+### Instalar Express
+
+Para poder instalar express se requiere el siguiente codigo el cual se deberá ingresar en la terminal
+
+```
+ npm install express
+```
+
+### Uso del módulo
+
+*Express nos permite definir, para cada tipo de petición HTTP que llegue a una determinada URL , qué acciones debe tomar, mediante la definicion de un callback para ecada caso que consideremos necesario incluir en nuestra API*
+
+* Su ejecución se realiza de la siguiente forma : 
+
+```
+ const express = require('express')
+ const app = express()
+```
+
+### Conexión del servidor
+
+```
+const PORT = 8080
+
+const server = app.listen(port, ()=> {
+    console.log(`Listening to request on http://localhost:${port}`)
+})
+
+```
+
+De ésta forma al declarar el console.log() con string interpolation nos permite acceder desde la terminal al enlace donde esta levantado el servidor. 
 
 
+### Manejo de errores en el servidor 
+```
+server.on("error", error => console.log('Error en el servidor'))
 
+```
+
+### Configuración petición GET 
+
+La forma por la cual obtenemos información desde el servidor es mediante las peticiones de tipo GET. 
+
+Su sintaxis es la siguiente: 
+
+```
+app.get("/layout", (req,res)=> {
+    res.send( {mensaje : 'hola mundo} ) 
+})
+
+```
+
+* req = request (petición)
+* res = response (respuesta)
