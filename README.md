@@ -90,7 +90,7 @@ Lo que nos permitirá luego poder ejecutar nodemon desde la terminal de la sigui
 Para poder instalar express se requiere el siguiente codigo el cual se deberá ingresar en la terminal
 
 ```
- npm install express
+ npm install express --save
 ```
 
 ### Uso del módulo
