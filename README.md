@@ -320,3 +320,114 @@ app.use(express.static('files'));
 ```
 app.use('/static', express.static(__dirname + '/public'));
 ```
+
+## Capas Middelware
+
+*Las funciones de middleware son aquellas que tienen acceso al objeto de solicitud (req), al objeto de respuesta (res) y a la siguiente función de middleware en el ciclo de solicitud/respuestas de la aplicación (next)
+
+Express puede ejecutar los siguientes middleware:
+* Middleware a nivel de aplicación
+* Middleware a nivel de Router
+* Middleware de manejo e errores
+* Middleware incorporado
+* Middleware de terceros
+
+A continuación veremos en detalle cada uno de ellos
+
+* Middleware a nivel de aplicación
+
+*Este ejemplo muestra una función de middleware sin ninguna vía de acceso de montaje. La función se ejecuta cada vez que la aplicación recibe una solicitud.
+
+```
+app.use(function (req, res, next) {
+  console.log('Time:', Date.now());
+  next();
+});
+
+```
+
+* Middleware a nivel de ruta
+
+*El middleware de nivel de router funciona de la misma manera que el middleware de nivel de aplicación, excepto que está enlazado a una instancia de express.Router().*
+
+```
+var app = express();
+var router = express.Router();
+
+// funcion middleware sin via de acceso de montaje. El codigo es ejecutado por cada peticion al router
+router.use(function (req, res, next) {
+  console.log('Time:', Date.now());
+  next();
+});
+
+```
+
+```
+function miMiddleware1(req,res,next) {
+  req.miAporte1 = 'dato aportado por el middleware 1'
+}
+
+
+function miMiddleware2(req,res,next) {
+  req.miAporte1 = 'dato aportado por el middleware 2'
+}
+
+// Ruta GET con un Middleware
+app.get('/miruta1',  miMiddleware1, (req,res) => {
+  let miAporte = req.miAporte1
+  res.send ({ miAporte1 })
+}
+
+// Ruta GET con dos Middleware
+app.get('/miruta1',  miMiddleware1, (req,res) => {
+  let {miAporte1, miAporte2} = req
+  res.send ({ miAporte1, miAporte2 })
+}
+
+```
+
+* Middleware de manejo de errores 
+*Estas funciones se definen de la misma forma que otras funciones de middleware, excepto que llevan cuatro argumentos en lugar de tres, específicamente con la firma (err, req, res, next):*
+
+```
+app.use(function(err, req, res, next) {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
+
+```
+
+* Middleware incorporado
+
+*La única función de middleware incorporado en Express es express.static. Esta función es responsable del servicio de archivos estáticos:*
+
+```
+app.use(express.static('public', options));
+
+```
+express.static(root, [options])
+- El argumento root especifica el directorio raíz desde el que se realiza el servicio de activos estáticos.
+- El objeto options opcional puede tener las siguientes propiedades: dotfiles, etag, extensions, index, lastModified, maxAge, redirect, setHeaders
+
+* Middleware de Terceros 
+*Podemos instalar y utilizar middlewares de terceros para añadir funcionalidad a nuestra aplicación. El uso puede ser a nivel de aplicación o a nivel de Router.*
+
+Primero se debe instalar el middleware
+
+```
+$ npm install cookie-parser
+```
+
+Codigo:
+
+```
+var express = require('express');
+var app = express();
+var cookieParser = require('cookie-parser');
+
+// load the cookie-parsing middleware
+app.use(cookieParser());
+```
+
+
+
