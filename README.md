@@ -124,21 +124,7 @@ server.on("error", error => console.log('Error en el servidor'))
 
 ```
 
-### Configuración petición GET 
 
-La forma por la cual obtenemos información desde el servidor es mediante las peticiones de tipo GET. 
-
-Su sintaxis es la siguiente: 
-
-```
-app.get("/", (req,res)=> {
-    res.send( {mensaje : 'hola mundo} ) 
-})
-
-```
-
-* req = request (petición)
-* res = response (respuesta)
 
 
 ### API RESTful
@@ -158,3 +144,47 @@ GET / POST / PUT / DELETE => *Se suelen establecer estos tipos de peticiones a t
 
 
 ![codigos-estado](https://user-images.githubusercontent.com/84943598/159064689-0a0a4041-4855-4040-942e-ab12b8077f2e.jpg)
+
+# Tipos de peticiones (GET , POST, PUT , DELETE)
+
+## Configuración petición GET 
+
+La forma por la cual obtenemos información desde el servidor es mediante las peticiones de tipo GET. 
+
+Su sintaxis es la siguiente: 
+
+```
+app.get("/", (req,res)=> {
+    res.send( {mensaje : 'hola mundo} ) 
+})
+
+```
+
+* req = request (petición)
+* res = response (respuesta)
+
+*Las peticiones GET devuelven un objeto como resultado*
+
+### Parametros en Get
+
+*Los parámetros se manejan del a siguiente forma *
+
+* Se agregan al final con un  ? 
+* Se enumeran pares de 'clave=valor'
+* Se separan mediante un &
+* Para recibirlos se encuentran en el objeto 'query' dentro de la petición req (el primer parámetro de los dos)
+
+###### Ejemplo de GET con identificador
+```
+app.get("/api/mensajes/:id", (req,res)=> {
+    res.send( 'Get recibido'  ) 
+})
+
+```
+
+*Para acceder al parametro dinamico que ofrece la url se hace de la siguiente forma *
+
+```
+req.params.id
+```
+
