@@ -150,6 +150,14 @@ GET / POST / PUT / DELETE => *Se suelen establecer estos tipos de peticiones a t
 
 # Tipos de peticiones (GET , POST, PUT , DELETE)
 
+*Cuando se usan estas peticiones se suele trabajar con JSON (Javascript Object Notation) por ende se debe ejecutar éste código antes de hacer cualquier tipo de petición.
+
+```
+app.use(express.json())
+app.use(express.urlencoded({ extended: true}))
+
+```
+
 ## Configuración petición GET 
 
 La forma por la cual obtenemos información desde el servidor es mediante las peticiones de tipo GET. 
@@ -229,6 +237,41 @@ app.post("/formulario", (req, res) => {
 ```
 
 *Se puede utilizar la desestructuración para poder operar con los distintos inputs que ofrece el body y almacenarlos a cada uno en una variable para luego poder operar con ellos* 
+
+
+## Petición Put
+
+*Se utiliza Put para actualizar un registro con uno nuevo
+
+```
+app.put('/api/:company', function(res,req) {
+   const actualizarProducto = 
+   recurso con id == (req.params.id,req.body)
+    res.send(producto)
+}
+```
+
+*En este caso la petición PUT llama a éste método traido de una Class que hace ésta ejecución
+
+
+## Peticion DELETE
+
+*Esta peticion sirve para eliminar un recurso. El cual debe ser identificado mediante la req.params que tenga la url (id)*
+
+```
+app.delete('/api/:company', function(res,req) {
+   const actualizarProducto = 
+   recurso con id == (req.params.id,req.body)
+    
+    //Se debe validar si el producto existe para ser eliminado 
+     if(producto){
+           res.send(`Se elimino ${req.params.id} `)
+       } else {
+           res.status(404).send({error: 'No existe el producto que estas buscando'})
+       }
+    
+}
+```
 
 
 
