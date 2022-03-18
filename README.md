@@ -131,7 +131,7 @@ La forma por la cual obtenemos información desde el servidor es mediante las pe
 Su sintaxis es la siguiente: 
 
 ```
-app.get("/layout", (req,res)=> {
+app.get("/", (req,res)=> {
     res.send( {mensaje : 'hola mundo} ) 
 })
 
