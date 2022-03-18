@@ -139,3 +139,19 @@ app.get("/", (req,res)=> {
 
 * req = request (petición)
 * res = response (respuesta)
+
+
+### API RESTful
+
+GET / POST / PUT / DELETE => *Se suelen establecer estos tipos de peticiones a través del protocolo HTTP (Protocolo de transferencia de HiperTexto) el cual se usa para intercambiar datos a traves de internet*
+
+*Se las denomina aplicaciones RESTful , a aplicaciones que operan en forma de servicios web, respondiendo consultas a otros sistemas a través de internet. *
+
+
+** HTTP : Códigos de Estado  **
+
+* 1xx (Informativo) : La petición fue recibida y continua su proceso
+* 2xx (Éxito) : Petición realizada con éxtio
+* 3xx (Redirección) : Mas acciones son requeridas para realizar la petición
+* 4xx(Error del cliente) : La petición tiene errores y no puede ser procesada
+* 5xx (Error del servidor) : El servidor falló al intentar la petición
