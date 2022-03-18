@@ -272,6 +272,51 @@ app.delete('/api/:company', function(res,req) {
     
 }
 ```
+## Router & Multer
 
+*La clase Router se usa para crear un nuevo objeto de enrutador, que es una instancia aislada de middleware y rutas. Se utiliza cuando se desea crear un nuevo objeto de enrutador para manejar solicitudes*
 
+*El router de express nos permite crear múltiples "mini-aplicaciones" para que se pueda asignar un espacio de nombre al api público, autenticación y otras rutas en sistema de enrutamientos separados.*
 
+* Para poder ejecutar Router debemos desestructurar express.
+
+```
+ const {Router} = express
+```
+
+* Luego ejecutamos Router
+
+```
+const router = Router()
+```
+
+* En app.use debemos ejecutar el siguiente código
+
+```
+app.use('/api', router)
+```
+
+### Servicio de archivos estáticos en Express
+
+* Para el servicio de archivos estáticos (por ejemplo imágenes, archivos CSS y archivos JavaScript) se utiliza la función de middleware incorporada express.static.
+* Esta función recibe como parámetro el nombre del directorio que contiene los activos estáticos.
+* El siguiente código configura el servicio de imágenes, archivos CSS y archivos JavaScript en un directorio denominado public:
+
+```
+app.use(express.static('public'));
+
+```
+
+* Para utilizar varios directorios de activos estáticos se invoca la función de middleware express.static varias veces
+
+```
+app.use(express.static('public'));
+app.use(express.static('files'));
+```
+
+* Path Absoluto
+*El path que se proporciona a la función express.static es relativo al directorio desde donde inicia el proceso node.
+
+```
+app.use('/static', express.static(__dirname + '/public'));
+```
