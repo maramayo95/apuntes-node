@@ -178,6 +178,10 @@ app.get("/", (req,res)=> {
 ```
 app.get("/api/mensajes/:id", (req,res)=> {
     res.send( 'Get recibido'  ) 
+    
+    // se opera con req.params.id
+    
+    // res.json(recursoBuscado) 
 })
 
 ```
@@ -186,5 +190,10 @@ app.get("/api/mensajes/:id", (req,res)=> {
 
 ```
 req.params.id
+```
+
+*Se utiliza este comando para devolver en json el resultado del get
+```
+res.json()
 ```
 
