@@ -38,7 +38,7 @@ Es importante tener en cuenta en los versionados la función que cumple cada num
 * Para realizar una actualización de patches o actualización menor se utiliza el caracter " ^ " (Circunflejo). 
 * Para realizar todas las actualizaciónes se utiliza " * " 
 
-# ATAJOS DE TERMINAL
+# Atajos de Terminal (Powershell)
 
 * Para crear un nuevo archivo se suele utilizar este codigo
 
